@@ -1,0 +1,9 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import { HomePage } from "@/components/home-page";
+---
+
+<Layout title="MakiSend">
+  <HomePage client:load />
+</Layout>

@@ -1,0 +1,29 @@
+import { AppSidebar } from "@/components/app-sidebar"
+import { SiteHeader } from "@/components/site-header"
+import { SectionCards } from "@/components/section-cards"
+import { ChartAreaInteractive } from "@/components/chart-area-interactive"
+import { ErrorsCard } from "@/components/errors-card"
+import { DataTable } from "@/components/data-table"
+import { SessionGuard } from "@/components/session-guard"
+import { UpdateBanner } from "@/components/update-banner"
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
+
+export function DashboardLayout() {
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <SiteHeader />
+        <SessionGuard>
+          <div className="flex flex-1 flex-col gap-6 p-4 sm:p-6">
+            <UpdateBanner />
+            <SectionCards />
+            <ChartAreaInteractive />
+            <ErrorsCard />
+            <DataTable />
+          </div>
+        </SessionGuard>
+      </SidebarInset>
+    </SidebarProvider>
+  )
+}
